@@ -21,8 +21,8 @@ public class TwoTests
         Assert.Multiple(() =>
         {
             Assert.That(testList.Length, Is.EqualTo(0));
-            Assert.That(testList.First, Is.EqualTo(null));
-            Assert.That(testList.Last, Is.EqualTo(null));
+            Assert.Throws<InvalidOperationException>(() => _ = testList.First);
+            Assert.Throws<InvalidOperationException>(() => _ = testList.Last);
         });
     }
 }
