@@ -80,7 +80,26 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     }                
     public void InsertAfter(DNode<T> node, T value)
     {
+        if (Length == 0)
+        {
+            AddFirst(value);
+        }
+        else
+        {
+            DNode<T> insertNode = new(value);
 
+            if (node.Next != null)
+            {
+                node.Next.Previous = insertNode;
+                insertNode.Next = node.Next;
+            }
+
+            node.Next = insertNode;
+            insertNode.Previous = node;
+
+            if (node == _tail)
+                _tail = insertNode;
+        }
     }
     public void RemoveByValue(T value)
     {
