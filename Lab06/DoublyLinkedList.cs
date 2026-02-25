@@ -6,8 +6,8 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     private DNode<T>? _tail = null;
     public int Length { get; private set; } = 0;
     // Throwing an exception if we try to get First or Last on an empty list, not sure if this is correct.
-    public T First => _head == null ? default! : _head.Value;
-    public T Last => _tail == null ? default! : _tail.Value;
+    public T First => Length == 0 ? throw new InvalidOperationException("List Empty!") : _head!.Value;
+    public T Last => Length == 0 ? throw new InvalidOperationException("List Empty!") : _tail!.Value;
 
     public void AddLast(T value)
     {
@@ -46,13 +46,38 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     }
     public void RemoveFirst()
     {
-        
+        if (Length == 0)
+            return;
+
+        if (Length == 1)
+            NullList();
+        else
+        {
+            _head!.Next!.Previous = null; // If our list isn't empty or one node, _head and _head.Next shouldn't be null
+            _head = _head.Next;
+            Length--;
+        }
     }     
     public void RemoveLast()
     {
+        if (Length == 0)
+            return;
 
+        if (Length == 1) 
+            NullList();
+        else
+        {
+            _tail!.Previous!.Next = null;
+            _tail = _tail.Previous;
+            Length--;
+        }
     }
-              
+    private void NullList()
+    {
+        _head = null;
+        _tail = null;
+        Length = 0;
+    }                
     public void InsertAfter(DNode<T> node, T value)
     {
 
