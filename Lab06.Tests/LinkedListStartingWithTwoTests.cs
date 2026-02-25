@@ -2,15 +2,27 @@ namespace Lab06.Tests;
 
 public class TwoTests
 {
+    DoublyLinkedList<int> testList;
+    
     // Initializes a list with two items
     [SetUp]
     public void Setup()
     {
+        testList = new();
+        testList.AddFirst(42);
+        testList.AddFirst(20);
     }
 
     [Test]
     public void RemoveFrontBackToEmptyTest()
     {
-        Assert.Pass();
+        testList.RemoveFirst();
+        testList.RemoveLast();
+        Assert.Multiple(() =>
+        {
+            Assert.That(testList.Length, Is.EqualTo(0));
+            Assert.That(testList.First, Is.EqualTo(null));
+            Assert.That(testList.Last, Is.EqualTo(null));
+        });
     }
 }

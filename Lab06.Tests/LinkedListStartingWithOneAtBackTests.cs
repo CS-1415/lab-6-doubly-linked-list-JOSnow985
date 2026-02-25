@@ -2,30 +2,58 @@ namespace Lab06.Tests;
 
 public class OneAtBackTests
 {
+    DoublyLinkedList<int> testList;
+
     // Initializes a list with one item added to the back
     [SetUp]
     public void Setup()
     {
+        testList = new();
+        testList.AddLast(42);
     }
 
     [Test]
     public void SingleAddLastTest()
     {
-        Assert.Pass();
+        testList.AddLast(6);
+        Assert.Multiple(() =>
+        {
+            Assert.That(testList.Length, Is.EqualTo(2));
+            Assert.That(testList.First, Is.EqualTo(42));
+            Assert.That(testList.Last, Is.EqualTo(6));
+        });
     }
     [Test]
     public void SingleAddFirstTest()
     {
-        Assert.Pass();
+        testList.AddFirst(32);
+        Assert.Multiple(() =>
+        {
+            Assert.That(testList.Length, Is.EqualTo(2));
+            Assert.That(testList.First, Is.EqualTo(32));
+            Assert.That(testList.Last, Is.EqualTo(42));
+        });
     }
     [Test]
     public void SingleRemoveLastTest()
     {
-        Assert.Pass();
+        testList.RemoveLast();
+        Assert.Multiple(() =>
+        {
+            Assert.That(testList.Length, Is.EqualTo(0));
+            Assert.That(testList.First, Is.EqualTo(null));
+            Assert.That(testList.Last, Is.EqualTo(null));
+        });
     }
     [Test]
     public void SingleRemoveFirstTest()
     {
-        Assert.Pass();
+        testList.RemoveFirst();
+        Assert.Multiple(() =>
+        {
+            Assert.That(testList.Length, Is.EqualTo(0));
+            Assert.That(testList.First, Is.EqualTo(null));
+            Assert.That(testList.Last, Is.EqualTo(null));
+        });
     }
 }
