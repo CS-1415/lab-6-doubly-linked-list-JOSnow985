@@ -1,0 +1,12 @@
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/bin/Debug/net8.0/Lab06.deps.json
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/bin/Debug/net8.0/Lab06.dll
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/bin/Debug/net8.0/Lab06.pdb
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.GeneratedMSBuildEditorConfig.editorconfig
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.AssemblyInfoInputs.cache
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.AssemblyInfo.cs
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.csproj.CoreCompileInputs.cache
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.sourcelink.json
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.dll
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/refint/Lab06.dll
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/Lab06.pdb
+/home/nobaraneko/Documents/School/CS1410/lab-6-doubly-linked-list-JOSnow985/Lab06/obj/Debug/net8.0/ref/Lab06.dll
