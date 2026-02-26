@@ -77,29 +77,31 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
         _head = null;
         _tail = null;
         Length = 0;
-    }                
+    }
     public void InsertAfter(DNode<T> node, T value)
     {
+        if (node == null)
+            return;
+
         if (Length == 0)
         {
             AddFirst(value);
+            return;
         }
+
+        // Setting up our new node
+        DNode<T> insertNode = new(value);
+        insertNode.Previous = node;
+        insertNode.Next = node.Next;
+
+        if (node.Next == null)
+            _tail = insertNode; // If the node doesn't have a next, it was the tail
         else
-        {
-            DNode<T> insertNode = new(value);
+            node.Next.Previous = insertNode;
 
-            if (node.Next != null)
-            {
-                node.Next.Previous = insertNode;
-                insertNode.Next = node.Next;
-            }
+        node.Next = insertNode;
 
-            node.Next = insertNode;
-            insertNode.Previous = node;
-
-            if (node == _tail)
-                _tail = insertNode;
-        }
+        Length++;
     }
     public void RemoveByValue(T value)
     {
@@ -107,6 +109,18 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     }
     public void ReverseList()
     {
-        
+        if (Length < 2) throw new InvalidOperationException("List can't be reversed without enough entries!");
+
+        DNode<T> current = _head!;
+
+        while (current != null)
+        {
+            // Swap the values
+            (current.Next, current.Previous) = (current.Previous, current.Next);
+            // New current node is the previous node, because we reversed them.
+            current = current!.Previous!;
+        }
+
+        (_head, _tail) = (_tail, _head);
     }
 }
