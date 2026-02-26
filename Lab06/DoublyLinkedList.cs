@@ -105,7 +105,29 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     }
     public void RemoveByValue(T value)
     {
-        
+        DNode<T> currentNode = _head!;
+
+        while (currentNode != null) // Don't need a length check because if it's null, the loop terminates anyway
+        {
+            if (currentNode.Value!.Equals(value))
+            {
+                if (currentNode.Previous != null)
+                    currentNode.Previous.Next = currentNode.Next;
+                else
+                    _head = currentNode.Next;       // If we removed the head, update it
+
+                if (currentNode.Next != null)
+                    currentNode.Next.Previous = currentNode.Previous;
+                else
+                    _tail = currentNode.Previous;   // Same for the tail
+                
+                Length--;
+
+                return;
+            }
+
+            currentNode = currentNode.Next!;
+        }
     }
     public void ReverseList()
     {
